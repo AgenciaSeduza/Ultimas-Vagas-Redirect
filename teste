@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vaga Garantida</title>
+  <meta name="description" content="Sua vaga já está garantida. Entre agora no grupo e não perca mais tempo." />
+  
+  <!-- Preload para performance (opcional, mas recomendado) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #000;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
+  </style>
+</head>
+<body>
+
+  <h1 class="pulse">Vaga Garantida</h1>
+  <p>Sua vaga já está garantida.<br>Entre agora no grupo e não perca mais tempo.</p>
+
+  <!-- Placeholder para React/Remix (mantido para parecer "profissional") -->
+  <div id="root"></div>
+
+  <!-- Anti-bot + Redirecionamento Dinâmico -->
+  <script type="module">
+    // === DETECÇÃO DE BOTS ===
+    const isBot = () => {
+      // 1. User-Agent suspeito
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.includes('bot') || ua.includes('crawler') || ua.includes('spider') || ua.includes('headless')) return true;
+
+      // 2. Sem Web APIs humanas
+      if (!navigator.webdriver && !window.chrome && !window.callPhantom && !window._phantom) return false;
+      if (navigator.webdriver) return true;
+
+      // 3. Tela muito pequena ou sem interação
+      if (screen.width < 100 || screen.height < 100) return true;
+
+      // 4. JS não rodando corretamente
+      if (!window.document || !window.document.body) return true;
+
+      return false;
+    };
+
+    // === REDIRECIONAMENTO CONDICIONAL ===
+    setTimeout(() => {
+      if (isBot()) {
+        // BOTS: vão para a página de senha do Shopify
+        window.location.href = "https://idealemporio.myshopify.com/password";
+      } else {
+        // HUMANOS: vão direto pro grupo Telegram
+        window.location.href = "https://t.me/+_4oIPC_hKTxlZDhh";
+      }
+    }, 800); // Pequeno delay para parecer natural
+  </script>
+
+</body>
+</html>
