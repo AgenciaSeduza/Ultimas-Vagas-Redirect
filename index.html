@@ -4,113 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REDE SECRETA • ÚLTIMAS VAGAS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;padding:20px 0;background:#000;height:100vh;display:flex;align-items:center;justify-content:center;box-sizing:border-box;}
+    body{margin:0;padding:15px 0;background:#000;height:100vh;display:flex;align-items:center;justify-content:center;box-sizing:border-box;font-family:Inter,sans-serif;}
     
-    .box{max-width:400px;width:92%;background:#0a0000;border-radius:28px;padding:20px 25px 40px;text-align:center;position:relative;
-         box-shadow:0 0 40px rgba(255,0,51,0.6),inset 0 0 30px rgba(255,0,51,0.2);
-         border:3px solid #ff0033;background:linear-gradient(135deg,#0f0000,#000);}
-    .box::before{content:"";position:absolute;inset:-6px;border:3px solid #ff3366;border-radius:32px;pointer-events:none;
-                 box-shadow:0 0 50px #ff0033,0 0 80px rgba(255,0,51,0.4);z-index:-1;}
+    .box{max-width:380px;width:92%;background:#0a0000;border-radius:24px;padding:18px 18px 28px;text-align:center;position:relative;
+         border:2.5px solid #ff0033;box-shadow:0 0 35px rgba(255,0,51,0.5);background:linear-gradient(135deg,#0f0000,#000);}
+    .box::before{content:"";position:absolute;inset:-5px;border:2.5px solid #ff3366;border-radius:28px;pointer-events:none;
+                 box-shadow:0 0 45px #ff0033;z-index:-1;}
 
-    .banner-top{width:100%;max-width:360px;border-radius:20px;margin:15px auto 20px;
-                border:4px solid #ff3366;box-shadow:0 0 40px rgba(255,0,51,0.8);}
+    /* Banner no topo */
+    .banner-top{width:100%;border-radius:16px;margin:10px 0 15px;border:3px solid #ff3366;box-shadow:0 0 30px rgba(255,0,51,0.7);}
 
-    .stats-container{display:flex;justify-content:center;gap:40px;margin:18px 0;}
-    .stat-number{font-size:35px;font-weight:900;color:#ff3366;line-height:1;}
-    .stat-label{font-size:15px;color:#ff6699;font-weight:600;}
+    /* Foto do tutorial */
+    .tutorial-img{width:100%;border-radius:14px;margin:15px 0;border:2px solid #ff3366;box-shadow:0 0 25px rgba(255,0,51,0.5);}
 
-    .rating-container{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px 0;}
-    .stars{font-size:27px;color:#ffdd00;}
-    .rating-text{font-size:18px;color:#fff;font-weight:700;}
+    /* Estatísticas menores e lado a lado */
+    .stats{display:flex;justify-content:center;gap:30px;margin:12px 0;}
+    .stats div{text-align:center;}
+    .num{font-size:28px;font-weight:900;color:#ff3366;line-height:1;}
+    .label{font-size:13px;color:#ff6699;}
 
-    .exclusivo{font-size:50px;font-weight:900;background:linear-gradient(90deg,#ff0033,#ff6699);
-               -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin:20px 0 12px;}
+    /* Avaliação */
+    .rating{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0;}
+    .stars{font-size:24px;color:#ffdd00;}
+    .score{font-size:16px;color:#fff;font-weight:700;}
 
-    .vagas{font-size:27px;color:#fff;margin:18px 0;}
-    .fire{font-size:36px;vertical-align:middle;margin-right:8px;animation:flame 1.4s infinite;}
-    @keyframes flame{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    /* Título */
+    .title{font-size:38px;font-weight:900;background:linear-gradient(90deg,#ff0033,#ff6699);
+           -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin:10px 0;}
 
-    .btn{display:block;background:#ff0033;color:#fff;font-size:24px;font-weight:900;padding:20px;
-         border-radius:50px;margin:28px auto 15px;text-decoration:none;width:90%;max-width:340px;
-         box-shadow:0 10px 35px rgba(255,0,51,0.7);transition:0.3s;}
-    .btn:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(255,0,51,0.9);}
+    /* Vagas */
+    .vagas{font-size:23px;color:#fff;margin:12px 0;}
+    .fire{font-size:32px;vertical-align:middle;margin-right:6px;animation:f 1.4s infinite;}
+    @keyframes f{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-    .warning{font-size:16px;color:#ff9966;margin-top:22px;}
+    /* Botão */
+    .btn{display:block;background:#ff0033;color:#fff;font-size:22px;font-weight:900;padding:18px;
+         border-radius:50px;margin:20px auto 10px;text-decoration:none;width:88%;
+         box-shadow:0 10px 30px rgba(255,0,51,0.7);transition:0.3s;}
+    .btn:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(255,0,51,0.9);}
 
-
-    /* ===== TUTORIAL PEQUENO E BONITO (igual ao print) ===== */
-    .tutorial{
-      background:rgba(20,0,0,0.9);
-      border:2px solid #ff0033;
-      border-radius:18px;
-      padding:16px 14px;
-      margin:25px auto 10px;
-      max-width:340px;
-      font-size:15px;
-      color:#fff;
-      line-height:1.5;
-      box-shadow:0 0 25px rgba(255,0,51,0.4);
-    }
-    .tutorial strong{color:#ff3366;}
-    .tutorial .steps{margin:12px 0 0 8px;text-align:left;}
-    .tutorial .step{
-      margin:10px 0;
-      padding-left:8px;
-      position:relative;
-    }
-    .tutorial .num{
-      position:absolute;left:-24px;top:1px;
-      background:#ff0033;
-      color:white;
-      width:22px;height:22px;
-      border-radius:50%;
-      text-align:center;
-      font-weight:900;
-      font-size:14px;
-    }
-    .tutorial .arrow{
-      font-size:38px;
-      color:#ff0033;
-      font-weight:bold;
-      display:inline-block;
-      transform:rotate(180deg);
-      margin-right:8px;
-    }
+    .warning{font-size:14px;color:#ff9966;margin-top:15px;}
   </style>
 </head>
 <body>
 
 <div class="box">
-
+  <!-- Banner principal -->
   <img src="banner.jpg" alt="Rede Secreta" class="banner-top">
 
-  <div class="stats-container">
-    <div><div class="stat-number">18.3K+</div><div class="stat-label">MEMBROS ATIVOS</div></div>
-    <div><div class="stat-number">4.8K+</div><div class="stat-label">ONLINE AGORA</div></div>
+  <!-- Estatísticas -->
+  <div class="stats">
+    <div><div class="num">18.3K+</div><div class="label">MEMBROS ATIVOS</div></div>
+    <div><div class="num">4.8K+</div><div class="label">ONLINE AGORA</div></div>
   </div>
 
-  <div class="rating-container">
+  <!-- Avaliação -->
+  <div class="rating">
     <div class="stars">★★★★★</div>
-    <div class="rating-text">4.9/5 (2.892 avaliações)</div>
+    <div class="score">4.9/5 (2.892 avaliações)</div>
   </div>
 
-  <div class="exclusivo">CONTEÚDO<br>EXCLUSIVO</div>
+  <div class="title">CONTEÚDO<br>EXCLUSIVO</div>
+
+  <!-- Foto do tutorial (substitui o texto) -->
+  <img src="foto.jpg" alt="Como entrar" class="tutorial-img">
 
   <div class="vagas">
     <span class="fire">APENAS 4 VAGAS RESTANTES</span><br>
-    <small style="color:#ff6699;font-size:16px;">Acesso liberado por tempo limitado</small>
-  </div>
-
-  <!-- TUTORIAL EXATAMENTE COMO NO PRINT -->
-  <div class="tutorial">
-    <strong>Siga o tutorial abaixo</strong>
-    <div class="steps">
-      <div class="step"><span class="num">1</span> Toque nos <strong>três pontinhos</strong> (canto superior da tela)</div>
-      <div class="step"><span class="num">2</span> Escolha <strong>"Abrir no navegador"</strong> <span class="arrow">AQUI</span></div>
-      <div class="step"><span class="num">3</span> Agora toque no botão vermelho para abrir o Telegram</div>
-    </div>
+    <small style="color:#ff6699;font-size:14px;">Acesso liberado por tempo limitado</small>
   </div>
 
   <a id="enter-btn" class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
@@ -125,19 +88,18 @@
   !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window,document,'ttq');
 
   const PID='D4FRJPBC77UEBGICQPK0', TOK='bf597b03c4b470ca9687deb287f7a7b92b62681e', API='https://business-api.tiktok.com/open_api/v1.3/event/track/';
-  const params=new URLSearchParams(location.search); const ttclid=params.get('ttclid')||'';
- 
-  function genId(n){return n+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9)}
-  async function send(e='ViewContent',extra={}){
-    if(e==='ViewContent'&&localStorage.getItem('rede_fired_final'))return;
-    const payload={pixel_code:PID,event:e,event_id:genId(e),timestamp:new Date().toISOString(),
+  const p=new URLSearchParams(location.search), ttclid=p.get('ttclid')||'';
+  
+  function id(n){return n+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9)}
+  async function send(e='ViewContent',x={}){
+    if(e==='ViewContent'&&localStorage.getItem('rede_ok'))return;
+    const pl={pixel_code:PID,event:e,event_id:id(e),timestamp:new Date().toISOString(),
       context:{user_agent:navigator.userAgent,page:{url:location.href},ad:ttclid?{callback:ttclid}:{}},
-      properties:{content_type:'product',content_id:'REDE_SECRETA_001',content_name:'Rede Secreta VIP',currency:'BRL',value:18.00,...extra}
+      properties:{content_type:'product',content_id:'REDE_SECRETA_001',content_name:'Rede Secreta VIP',currency:'BRL',value:18.00,...x}
     };
-    try{await fetch(API,{method:'POST',headers:{'Access-Token':TOK,'Content-Type':'application/json'},body:JSON.stringify(payload)});}catch{}
+    try{await fetch(API,{method:'POST',headers:{'Access-Token':TOK,'Content-Type':'application/json'},body:JSON.stringify(pl)});}catch{}
   }
-
-  window.addEventListener('load',()=>setTimeout(()=>{send();localStorage.setItem('rede_fired_final','1');},800));
+  window.addEventListener('load',()=>setTimeout(()=>{send();localStorage.setItem('rede_ok','1');},800));
   document.getElementById('enter-btn').addEventListener('click',()=>{send('ClickButton');send('CompleteRegistration');});
 </script>
 
