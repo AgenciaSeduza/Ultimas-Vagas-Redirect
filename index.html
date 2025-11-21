@@ -3,109 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acesso ao Telegram - Rede Secreta</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>REDE SECRETA • ACESSO EXCLUSIVO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    body {background:#0e0e0e;color:white;font-family:'Poppins',sans-serif;text-align:center;margin:0;padding:0}
-    .container {max-width:420px;margin:60px auto;padding:20px;background:#141414;border-radius:14px;box-shadow:0 0 15px rgba(255,255,255,0.08)}
-    img {width:100%;border-radius:10px;margin-bottom:20px}
-    h1 {font-size:24px;margin-bottom:10px}
-    p {color:#ccc;font-size:15px;margin-bottom:25px}
-    .botao {display:inline-block;background:#0088cc;color:white;text-decoration:none;padding:14px 30px;border-radius:10px;font-weight:600;transition:.3s}
-    .botao:hover {background:#00aaff;transform:scale(1.05)}
-  </style>
+    body {
+      margin: 0; padding: 0; background: linear-gradient(135deg, #000000 0%, #2d0000 50%, #000000 100%);
+      color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .container {
+      max-width: 400px; margin: 20px; padding: 30px 25px;
+      background: rgba(20, 20, 20, 0.95);
+      border-radius: 20px;
+      border: 1.5px solid #ff1a1a;
+      box-shadow: 0 0 40px rgba(255, 20, 20, 0.4), inset 0 0 20px rgba(255, 50, 50, 0.2);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .container::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,20,20,0.15) 0%, transparent 70%);
+      animation: pulse 8s infinite;
+    }
+    @keyframes pulse { 0%,100% {transform: scale(1);} 50% {transform: scale(1.1);} }
 
-  <!-- NOVO PIXEL DA REDE SECRETA -->
-  <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-      ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],
-      ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-      ttq.load=function(e){var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-      ttq.load('D4FRJPBC77UEBGICQPK0');
-      ttq.page();
-    }(window, document, 'ttq');
-  </script>
+    .lock {font-size: 50px; margin-bottom: 10px;}
+    h1 {
+      font-family: 'Orbitron', sans-serif; font-size: 28px; margin: 15px 0;
+      background: linear-gradient(90deg, #ff1a1a, #ff6b6b);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255, 20, 20, 0.6);
+    }
+    p {
+      font-size: 16px; color: #ff9999; margin: 20px 0; line-height: 1.5;
+    }
+    .btn {
+      display: inline-block; background: linear-gradient(45deg, #ff1a1a, #ff4444);
+      color: white; text-decoration: none; padding: 18px 40px;
+      border-radius: 50px; font-weight: bold; font-size: 18px;
+      margin-top: 20px; box-shadow: 0 8px 25px rgba(255, 20, 20, 0.5);
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      width: 5px; height: 5px; background: rgba(255,255,255,0.5);
+      opacity: 0; border-radius: 100%; transform: scale(1) translate(-50%, -50%);
+      transform-origin: center;
+    }
+    .btn:hover {
+      transform: translateY(-5px); box-shadow: 0 15px 35px rgba(255, 20, 20, 0.7);
+    }
+    .btn:active::after { opacity: 1; width: 300px; height: 300px; transition: width 0.6s, height 0.6s; }
+    .fire {font-size: 28px; margin-left: 10px;}
+  </style>
 </head>
 <body>
   <div class="container">
-    <img src="banner.jpg" alt="Banner promocional">
-    <img src="foto.jpg" alt="Instruções de acesso">
-    <h1>Acesso ao Telegram</h1>
-    <p>Clique no botão abaixo para continuar e entrar no grupo VIP.</p>
-    <a id="enter-btn" class="botao" href="https://apextry.com/go/tktkadsrede" target="_blank">Entrar agora</a>
+    <div class="lock">🔒</div>
+    <h1>REDE SECRETA</h1>
+    <p>Você foi selecionado para entrar no grupo mais exclusivo do Telegram.<br>
+    <strong>Vagas estão acabando...</strong></p>
+    <img src="banner.jpg" alt="Preview" style="width:100%;border-radius:12px;margin:20px 0;border:2px solid #ff3366;">
+    
+    <a id="enter-btn" class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
+      ENTRAR AGORA <span class="fire">🔥</span>
+    </a>
   </div>
 
+  <!-- Pixel + API com ttclid (EMQ 95+) -->
   <script>
+    !function (w, d, t) {w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window, document, 'ttq');
+
     const PIXEL_ID = 'D4FRJPBC77UEBGICQPK0';
     const TOKEN    = 'bf597b03c4b470ca9687deb287f7a7b92b62681e';
     const API      = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
-
     const urlParams = new URLSearchParams(window.location.search);
-    const ttclid    = urlParams.get('ttclid') || '';
-    const value     = parseFloat(urlParams.get('price') || urlParams.get('value') || '18.00') || 18.00;
+    const ttclid = urlParams.get('ttclid') || '';
+    const value = 18.00;
 
-    function generateEventId(name) {
-      return `${name}_${Date.now()}_${Math.random().toString(36).substr(2,9)}`;
-    }
-
-    async function sendEvent(eventName, extra = {}) {
-      // Evita duplicar ViewContent
-      if (eventName === 'ViewContent' && localStorage.getItem('rede_secreta_view_fired')) return;
-
-      const payload = {
-        pixel_code: PIXEL_ID,
-        event: eventName,
-        event_id: generateEventId(eventName),
-        timestamp: new Date().toISOString(),
-        context: {
-          user_agent: navigator.userAgent,
-          page: { url: window.location.href, referrer: document.referrer || '' },
-          ad: ttclid ? { callback: ttclid } : {}   // AQUI SOBE O EMQ DO PAGE VIEW!
-        },
-        properties: {
-          content_type: 'product',
-          content_id: 'REDE_SECRETA_001',
-          content_name: 'Rede Secreta VIP',
-          currency: 'BRL',
-          value: value,
-          ...extra
-        }
+    function generateEventId(n) {return `${n}_${Date.now()}_${Math.random().toString(36).substr(2,9)}`;}
+    async function send(e,n='ViewContent',x={}) {
+      if (n==='ViewContent' && localStorage.getItem('rede_view')) return;
+      const p = {pixel_code:PIXEL_ID,event:n,event_id:generateEventId(n),timestamp:new Date().toISOString(),
+        context:{user_agent:navigator.userAgent,page:{url:location.href},ad:ttclid?{callback:ttclid}:{}},
+        properties:{content_type:'product',content_id:'REDE_SECRETA_001',content_name:'Rede Secreta VIP',currency:'BRL',value:value,...x}
       };
-
-      try {
-        const res = await fetch(API, {
-          method: 'POST',
-          headers: { 'Access-Token': TOKEN, 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const json = await res.json();
-        if (res.ok && json.code === 0) {
-          console.log(`[Rede Secreta] ${eventName} OK + ttclid`);
-        }
-      } catch(e) { console.error(e); }
+      try {await fetch(API,{method:'POST',headers:{'Access-Token':TOKEN,'Content-Type':'application/json'},body:JSON.stringify(p)});} catch{}
     }
 
-    // ViewContent com ttclid (EMQ altíssimo)
-    window.addEventListener('load', () => {
-      if (localStorage.getItem('rede_secreta_view_fired')) return;
-      setTimeout(async () => {
-        await sendEvent('ViewContent');
-        if (window.ttq) ttq.track('ViewContent', { value, currency: 'BRL', content_id: 'REDE_SECRETA_001' });
-        localStorage.setItem('rede_secreta_view_fired', 'true');
-      }, 800);
-    });
-
-    // ClickButton + CompleteRegistration
-    document.getElementById('enter-btn').addEventListener('click', async () => {
-      await sendEvent('ClickButton');
-      await sendEvent('CompleteRegistration', { value });
-      if (window.ttq) {
-        ttq.track('ClickButton');
-        ttq.track('CompleteRegistration', { value, currency: 'BRL', content_id: 'REDE_SECRETA_001' });
-      }
-    });
+    window.addEventListener('load',()=>setTimeout(async()=>{await send();if(window.ttq)ttq.track('ViewContent');localStorage.setItem('rede_view','1');},800));
+    document.getElementById('enter-btn').addEventListener('click',()=>{send('ClickButton');send('CompleteRegistration');});
   </script>
 </body>
 </html>
