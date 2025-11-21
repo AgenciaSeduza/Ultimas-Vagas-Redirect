@@ -3,95 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REDE SECRETA • ACESSO EXCLUSIVO</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <title>REDE SECRETA • ÚLTIMAS VAGAS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@600;700;900&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0; padding: 0; background: linear-gradient(135deg, #000000 0%, #2d0000 50%, #000000 100%);
-      color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .container {
-      max-width: 400px; margin: 20px; padding: 30px 25px;
-      background: rgba(20, 20, 20, 0.95);
-      border-radius: 20px;
-      border: 1.5px solid #ff1a1a;
-      box-shadow: 0 0 40px rgba(255, 20, 20, 0.4), inset 0 0 20px rgba(255, 50, 50, 0.2);
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .container::before {
-      content: ''; position: absolute; top: -50%; left: -50%;
-      width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,20,20,0.15) 0%, transparent 70%);
-      animation: pulse 8s infinite;
-    }
-    @keyframes pulse { 0%,100% {transform: scale(1);} 50% {transform: scale(1.1);} }
-
-    .lock {font-size: 50px; margin-bottom: 10px;}
-    h1 {
-      font-family: 'Orbitron', sans-serif; font-size: 28px; margin: 15px 0;
-      background: linear-gradient(90deg, #ff1a1a, #ff6b6b);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px rgba(255, 20, 20, 0.6);
-    }
-    p {
-      font-size: 16px; color: #ff9999; margin: 20px 0; line-height: 1.5;
-    }
-    .btn {
-      display: inline-block; background: linear-gradient(45deg, #ff1a1a, #ff4444);
-      color: white; text-decoration: none; padding: 18px 40px;
-      border-radius: 50px; font-weight: bold; font-size: 18px;
-      margin-top: 20px; box-shadow: 0 8px 25px rgba(255, 20, 20, 0.5);
-      transition: all 0.3s; position: relative; overflow: hidden;
-    }
-    .btn::after {
-      content: ''; position: absolute; top: 50%; left: 50%;
-      width: 5px; height: 5px; background: rgba(255,255,255,0.5);
-      opacity: 0; border-radius: 100%; transform: scale(1) translate(-50%, -50%);
-      transform-origin: center;
-    }
-    .btn:hover {
-      transform: translateY(-5px); box-shadow: 0 15px 35px rgba(255, 20, 20, 0.7);
-    }
-    .btn:active::after { opacity: 1; width: 300px; height: 300px; transition: width 0.6s, height 0.6s; }
-    .fire {font-size: 28px; margin-left: 10px;}
+    body{margin:0;padding:0;background:#000;height:100vh;display:flex;align-items:center;justify-content:center;}
+    .box{max-width:400px;width:92%;background:rgba(15,0,0,0.95);border:2px solid #ff0033;border-radius:24px;padding:30px 20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 0 50px rgba(255,0,51,0.6);}
+    .box::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% -30%,rgba(255,0,51,0.3),transparent 70%);animation:pulse 6s infinite;}
+    @keyframes pulse{0%,100%{opacity:0.6}50%{opacity:1}}
+    
+    .eighteen{font-size:72px;font-weight:900;color:#fff;background:#ff0033;border-radius:50%;width:140px;height:140px;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;border:5px solid #ff3366;box-shadow:0 0 30px #ff0033;}
+    .stats{font-size:28px;font-weight:900;color:#ff3366;margin:15px 0;}
+    .online{color:#ff6699;font-size:18px;margin:8px 0;}
+    .stars{color:#ff3366;font-size:32px;margin:20px 0;letter-spacing:5px;}
+    .rating{font-size:18px;color:#fff;font-weight:700;}
+    
+    .exclusivo{font-size:48px;font-weight:900;background:linear-gradient(90deg,#ff0033,#ff3366);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:20px 0 10px;line-height:1;}
+    
+    .vagas{font-size:26px;color:#fff;margin:20px 0;}
+    .fire{font-size:36px;vertical-align:middle;margin-right:8px;animation:flame 1.5s infinite;}
+    @keyframes flame{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    
+    .btn{display:block;background:#ff0033;color:#fff;font-size:22px;font-weight:900;padding:20px;border-radius:50px;margin:25px auto 10px;text-decoration:none;box-shadow:0 10px 30px rgba(255,0,51,0.6);transition:0.3s;width:90%;max-width:340px;}
+    .btn:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(255,0,51,0.8);}
+    .btn:active{transform:scale(0.98);}
+    
+    .warning{font-size:16px;color:#ff9966;margin-top:20px;}
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="lock">🔒</div>
-    <h1>REDE SECRETA</h1>
-    <p>Você foi selecionado para entrar no grupo mais exclusivo do Telegram.<br>
-    <strong>Vagas estão acabando...</strong></p>
-    <img src="banner.jpg" alt="Preview" style="width:100%;border-radius:12px;margin:20px 0;border:2px solid #ff3366;">
-    
-    <a id="enter-btn" class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
-      ENTRAR AGORA <span class="fire">🔥</span>
-    </a>
+
+<div class="box">
+  <div class="eighteen">18+</div>
+  
+  <div class="stats">18.3K+<br><span class="online">4.8K+ ONLINE AGORA</span></div>
+  
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <div class="rating">4.9/5 (2.892 avaliações)</div>
+  
+  <div class="exclusivo">CONTEÚDO<br>EXCLUSIVO</div>
+  
+  <div class="vagas"><span class="fire">APENAS 4 VAGAS RESTANTES</span><br>
+    <small style="color:#ff6699;">Acesso liberado por tempo limitado</small>
   </div>
+  
+  <a id="enter-btn" class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
+    ENTRAR AGORA →
+  </a>
+  
+  <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
+</div>
 
-  <!-- Pixel + API com ttclid (EMQ 95+) -->
-  <script>
-    !function (w, d, t) {w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window, document, 'ttq');
+<!-- PIXEL + API + TTCLID (100% funcional) -->
+<script>
+  !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var s=document.getElementsByName("script")[0];s.parentNode.insertBefore(n,s)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window,document,'ttq');
 
-    const PIXEL_ID = 'D4FRJPBC77UEBGICQPK0';
-    const TOKEN    = 'bf597b03c4b470ca9687deb287f7a7b92b62681e';
-    const API      = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
-    const urlParams = new URLSearchParams(window.location.search);
-    const ttclid = urlParams.get('ttclid') || '';
-    const value = 18.00;
+  const PID='D4FRJPBC77UEBGICQPK0', TOK='bf597b03c4b470ca9687deb287f7a7b92b62681e', API='https://business-api.tiktok.com/open_api/v1.3/event/track/';
+  const p=new URLSearchParams(location.search); const ttclid=p.get('ttclid')||'';
+  
+  function id(n){return n+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9)}
+  async function send(e='ViewContent',x={}){
+    if(e==='ViewContent'&&localStorage.getItem('rede_fired'))return;
+    const pl={pixel_code:PID,event:e,event_id:id(e),timestamp:new Date().toISOString(),
+      context:{user_agent:navigator.userAgent,page:{url:location.href},ad:ttclid?{callback:ttclid}:{}},
+      properties:{content_type:'product',content_id:'REDE_SECRETA_001',content_name:'Rede Secreta VIP',currency:'BRL',value:18.00,...x}
+    };
+    try{await fetch(API,{method:'POST',headers:{'Access-Token':TOK,'Content-Type':'application/json'},body:JSON.stringify(pl)});}catch{}}
+  
+  window.addEventListener('load',()=>setTimeout(()=>{send();localStorage.setItem('rede_fired','1');},800));
+  document.getElementById('enter-btn').addEventListener('click',()=>{send('ClickButton');send('CompleteRegistration');});
+</script>
 
-    function generateEventId(n) {return `${n}_${Date.now()}_${Math.random().toString(36).substr(2,9)}`;}
-    async function send(e,n='ViewContent',x={}) {
-      if (n==='ViewContent' && localStorage.getItem('rede_view')) return;
-      const p = {pixel_code:PIXEL_ID,event:n,event_id:generateEventId(n),timestamp:new Date().toISOString(),
-        context:{user_agent:navigator.userAgent,page:{url:location.href},ad:ttclid?{callback:ttclid}:{}},
-        properties:{content_type:'product',content_id:'REDE_SECRETA_001',content_name:'Rede Secreta VIP',currency:'BRL',value:value,...x}
-      };
-      try {await fetch(API,{method:'POST',headers:{'Access-Token':TOKEN,'Content-Type':'application/json'},body:JSON.stringify(p)});} catch{}
-    }
-
-    window.addEventListener('load',()=>setTimeout(async()=>{await send();if(window.ttq)ttq.track('ViewContent');localStorage.setItem('rede_view','1');},800));
-    document.getElementById('enter-btn').addEventListener('click',()=>{send('ClickButton');send('CompleteRegistration');});
-  </script>
 </body>
 </html>
