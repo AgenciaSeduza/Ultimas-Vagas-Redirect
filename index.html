@@ -4,72 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REDE SECRETA • ÚLTIMAS VAGAS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;900&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;padding:0;background:#000;height:100vh;display:flex;align-items:center;justify-content:center;}
-    .box{max-width:400px;width:92%;background:rgba(15,0,0,0.95);border:2px solid #ff0033;border-radius:24px;padding:30px 20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 0 50px rgba(255,0,51,0.6);}
-    .box::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% -30%,rgba(255,0,51,0.3),transparent 70%);animation:pulse 6s infinite;}
-    @keyframes pulse{0%,100%{opacity:0.6}50%{opacity:1}}
+    body{margin:0;padding:20px 0;background:#000;height:100vh;display:flex;align-items:center;justify-content:center;box-sizing:border-box;}
     
-    .eighteen{font-size:72px;font-weight:900;color:#fff;background:#ff0033;border-radius:50%;width:140px;height:140px;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;border:5px solid #ff3366;box-shadow:0 0 30px #ff0033;}
-    .stats{font-size:28px;font-weight:900;color:#ff3366;margin:15px 0;}
-    .online{color:#ff6699;font-size:18px;margin:8px 0;}
-    .stars{color:#ff3366;font-size:32px;margin:20px 0;letter-spacing:5px;}
-    .rating{font-size:18px;color:#fff;font-weight:700;}
-    
-    .exclusivo{font-size:48px;font-weight:900;background:linear-gradient(90deg,#ff0033,#ff3366);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:20px 0 10px;line-height:1;}
-    
-    .vagas{font-size:26px;color:#fff;margin:20px 0;}
-    .fire{font-size:36px;vertical-align:middle;margin-right:8px;animation:flame 1.5s infinite;}
-    @keyframes flame{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-    
-    .btn{display:block;background:#ff0033;color:#fff;font-size:22px;font-weight:900;padding:20px;border-radius:50px;margin:25px auto 10px;text-decoration:none;box-shadow:0 10px 30px rgba(255,0,51,0.6);transition:0.3s;width:90%;max-width:340px;}
-    .btn:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(255,0,51,0.8);}
-    .btn:active{transform:scale(0.98);}
-    
-    .warning{font-size:16px;color:#ff9966;margin-top:20px;}
+    /* Borda vermelha neon ao redor (igual à versão que você amou) */
+    .box{max-width:400px;width:92%;background:#0a0000;border-radius:28px;padding:35px 25px;text-align:center;position:relative;
+         box-shadow:0 0 40px rgba(255,0,51,0.6),inset 0 0 30px rgba(255,0,51,0.2);
+         border:3px solid #ff0033;background:linear-gradient(135deg,#0f0000,#000);}
+    .box::before{content:"";position:absolute;inset:-6px;border:3px solid #ff3366;border-radius:32px;pointer-events:none;
+                 box-shadow:0 0 50px #ff0033,0 0 80px rgba(255,0,51,0.4);z-index:-1;}
+
+    .eighteen{font-size:72px;font-weight:900;color:#fff;background:#ff0033;border-radius:50%;width:130px;height:130px;
+              display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 30px #ff0033;}
+
+    /* 18.3K+ e 4.8K+ lado a lado */
+    .stats-container{display:flex;justify-content:center;align-items:center;gap:40px;margin:20px 0;}
+    .stat-block{text-align:center;}
+    .stat-number{font-size:36px;font-weight:900;color:#ff3366;line-height:1;}
+    .stat-label{font-size:16px;color:#ff6699;font-weight:600;margin-top:4px;}
+
+    /* Estrelas + avaliação alinhado à esquerda e menor */
+    .rating-container{display:flex;align-items:center;justify-content:center;gap:10px;margin:20px 0;}
+    .stars{font-size:28px;color:#ffdd00;}
+    .rating-text{font-size:18px;color:#fff;font-weight:700;}
+
+    .exclusivo{font-size:52px;font-weight:900;background:linear-gradient(90deg,#ff0033,#ff6699);
+               -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin:25px 0 15px;}
+
+    .vagas{font-size:28px;color:#fff;margin:20px 0;}
+    .fire{font-size:38px;vertical-align:middle;margin-right:8px;animation:flame 1.4s infinite;}
+    @keyframes flame{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+    .btn{display:block;background:#ff0033;color:#fff;font-size:24px;font-weight:900;padding:20px;
+         border-radius:50px;margin:30px auto 15px;text-decoration:none;width:90%;max-width:340px;
+         box-shadow:0 10px 35px rgba(255,0,51,0.7);transition:0.3s;}
+    .btn:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(255,0,51,0.9);}
+    .btn:active{transform:scale(0.97);}
+
+    .warning{font-size:16px;color:#ff9966;margin-top:25px;}
   </style>
 </head>
 <body>
 
 <div class="box">
   <div class="eighteen">18+</div>
-  
-  <div class="stats">18.3K+<br><span class="online">4.8K+ ONLINE AGORA</span></div>
-  
-  <div class="stars">⭐⭐⭐⭐⭐</div>
-  <div class="rating">4.9/5 (2.892 avaliações)</div>
-  
-  <div class="exclusivo">CONTEÚDO<br>EXCLUSIVO</div>
-  
-  <div class="vagas"><span class="fire">APENAS 4 VAGAS RESTANTES</span><br>
-    <small style="color:#ff6699;">Acesso liberado por tempo limitado</small>
+
+  <!-- 18.3K+ e 4.8K+ lado a lado -->
+  <div class="stats-container">
+    <div class="stat-block">
+      <div class="stat-number">18.3K+</div>
+      <div class="stat-label">MEMBROS ATIVOS</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">4.8K+</div>
+      <div class="stat-label">ONLINE AGORA</div>
+    </div>
   </div>
-  
+
+  <!-- Estrelas + avaliação -->
+  <div class="rating-container">
+    <div class="stars">★★★★★</div>
+    <div class="rating-text">4.9/5 (2.892 avaliações)</div>
+  </div>
+
+  <div class="exclusivo">CONTEÚDO<br>EXCLUSIVO</div>
+
+  <div class="vagas">
+    <span class="fire">APENAS 4 VAGAS RESTANTES</span><br>
+    <small style="color:#ff6699;font-size:16px;">Acesso liberado por tempo limitado</small>
+  </div>
+
   <a id="enter-btn" class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
     ENTRAR AGORA →
   </a>
-  
+
   <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
 </div>
 
-<!-- PIXEL + API + TTCLID (100% funcional) -->
+<!-- Pixel + API + ttclid 100% funcional -->
 <script>
-  !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var s=document.getElementsByName("script")[0];s.parentNode.insertBefore(n,s)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window,document,'ttq');
+  !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window,document,'ttq');
 
   const PID='D4FRJPBC77UEBGICQPK0', TOK='bf597b03c4b470ca9687deb287f7a7b92b62681e', API='https://business-api.tiktok.com/open_api/v1.3/event/track/';
-  const p=new URLSearchParams(location.search); const ttclid=p.get('ttclid')||'';
+  const params=new URLSearchParams(location.search); const ttclid=params.get('ttclid')||'';
   
-  function id(n){return n+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9)}
-  async function send(e='ViewContent',x={}){
-    if(e==='ViewContent'&&localStorage.getItem('rede_fired'))return;
-    const pl={pixel_code:PID,event:e,event_id:id(e),timestamp:new Date().toISOString(),
+  function genId(n){return n+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9)}
+  async function send(e='ViewContent',extra={}){
+    if(e==='ViewContent'&&localStorage.getItem('rede_fired_v2'))return;
+    const payload={pixel_code:PID,event:e,event_id:genId(e),timestamp:new Date().toISOString(),
       context:{user_agent:navigator.userAgent,page:{url:location.href},ad:ttclid?{callback:ttclid}:{}},
-      properties:{content_type:'product',content_id:'REDE_SECRETA_001',content_name:'Rede Secreta VIP',currency:'BRL',value:18.00,...x}
+      properties:{content_type:'product',content_id:'REDE_SECRETA_001',content_name:'Rede Secreta VIP',currency:'BRL',value:18.00,...extra}
     };
-    try{await fetch(API,{method:'POST',headers:{'Access-Token':TOK,'Content-Type':'application/json'},body:JSON.stringify(pl)});}catch{}}
-  
-  window.addEventListener('load',()=>setTimeout(()=>{send();localStorage.setItem('rede_fired','1');},800));
+    try{await fetch(API,{method:'POST',headers:{'Access-Token':TOK,'Content-Type':'application/json'},body:JSON.stringify(payload)});}catch{}
+  }
+
+  window.addEventListener('load',()=>setTimeout(()=>{send();localStorage.setItem('rede_fired_v2','1');},800));
   document.getElementById('enter-btn').addEventListener('click',()=>{send('ClickButton');send('CompleteRegistration');});
 </script>
 
