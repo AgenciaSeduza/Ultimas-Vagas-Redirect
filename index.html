@@ -8,7 +8,7 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     body{background:#000;color:#fff;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:10px 0;background:radial-gradient(circle at 50% 30%,#220011,#000 70%);}
-    .card{width:92%;max-width:360px;background:#0f0a0f;border-radius:24px;overflow:hidden;border:2px solid #ff1f5f;box-shadow:0 0 30px rgba(255,31,95,0.3);position:relative;padding:14px 16px 18px;}
+    .card{width:92%;max-width:360px;background:#0f0a0f;border-radius:24px;overflow:hidden;border:2px solid #ff1f5f;box-shadow:0 0 30px rgba(255,31,95,0.3);padding:14px 16px 18px;}
     .banner{width:100%;border-radius:16px;border:2.5px solid #ff4b8f;box-shadow:0 0 25px rgba(255,75,143,0.4);display:block;}
     .stats{display:flex;justify-content:center;gap:32px;margin:14px 0 10px;}
     .stat-item{text-align:center;line-height:1.2;}
@@ -45,28 +45,30 @@
     <span class="fire">APENAS 4 VAGAS RESTANTES</span>
     <span class="small">Acesso liberado por tempo limitado</span>
   </div>
-  <a id="enter-btn" class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">ENTRAR AGORA →</a>
+  <a id="enter-btn" class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
+    ENTRAR AGORA →
+  </a>
   <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
 </div>
 
-<!-- PIXEL CLIENT-SIDE (sempre primeiro) -->
+<!-- 1. PIXEL CLIENT-SIDE (sempre primeiro) -->
 <script>
   !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window,document,'ttq');
 </script>
 
-<!-- API SERVER-SIDE CORRIGIDA (ViewContent agora marca 100%) -->
+<!-- 2. SERVER-SIDE OTIMIZADO PARA PRESSELL -->
 <script>
   const PID = 'D4FRJPBC77UEBGICQPK0';
   const TOK = 'bf597b03c4b470ca9687deb287f7a7b92b62681e';
   const API = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
-  const urlParams = new URLSearchParams(location.search);
-  const ttclid = urlParams.get('ttclid') || '';
+  const params = new URLSearchParams(location.search);
+  const ttclid = params.get('ttclid') || '';
 
   function genId(e) { return `${e}_${Date.now()}_${Math.random().toString(36).substr(2,9)}`; }
 
-  async function sendEvent(eventName = 'ViewContent', extra = {}) {
-    // Só bloqueia ViewContent depois que já enviou uma vez (não antes!)
-    if (eventName === 'ViewContent' && localStorage.getItem('vc_fired')) return;
+  async function send(eventName, extra = {}) {
+    // Só bloqueia ViewContent depois de enviado
+    if (eventName === 'ViewContent' && localStorage.getItem('vc_sent')) return;
 
     const payload = {
       pixel_code: PID,
@@ -94,22 +96,19 @@
         headers: { 'Access-Token': TOK, 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      if (eventName === 'ViewContent') localStorage.setItem('vc_fired', '1');
+      if (eventName === 'ViewContent') localStorage.setItem('vc_sent', '1');
     } catch(e) {}
   }
 
-  // Dispara ViewContent + Purchase assim que carregar
+  // ViewContent (100% garantido)
   window.addEventListener('load', () => {
-    setTimeout(() => {
-      sendEvent('ViewContent');
-      sendEvent('Purchase', { value: 18.00 });
-    }, 800);
+    setTimeout(() => send('ViewContent'), 600);
   });
 
-  // Clique no botão
+  // Clique no botão = InitiateCheckout (melhor evento para pressell)
   document.getElementById('enter-btn').addEventListener('click', () => {
-    sendEvent('ClickButton');
-    sendEvent('CompleteRegistration');
+    send('InitiateCheckout', { value: 18.00 });
+    if (window.ttq) ttq.track('InitiateCheckout');
   });
 </script>
 
