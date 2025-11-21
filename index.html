@@ -2,65 +2,76 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REDE SECRETA • ÚLTIMAS VAGAS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>REDE SECRETA</title>
   <style>
-    body{margin:0;padding:15px 0;background:#000;height:100vh;display:flex;align-items:center;justify-content:center;box-sizing:border-box;font-family:Inter,sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:#000;color:#fff;font-family:system-ui,-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;
+         min-height:100vh;padding:8px 0;background:radial-gradient(circle at center,#1a0000,#000);}
     
-    .box{max-width:380px;width:92%;background:#0a0000;border-radius:24px;padding:18px 18px 28px;text-align:center;position:relative;
-         border:2.5px solid #ff0033;box-shadow:0 0 35px rgba(255,0,51,0.5);background:linear-gradient(135deg,#0f0000,#000);}
-    .box::before{content:"";position:absolute;inset:-5px;border:2.5px solid #ff3366;border-radius:28px;pointer-events:none;
-                 box-shadow:0 0 45px #ff0033;z-index:-1;}
+    .card{
+      width:92%;max-width:380px;background:#0a0000;border-radius:26px;overflow:hidden;
+      border:3px solid #ff0033;box-shadow:0 0 40px rgba(255,0,51,0.7);
+      position:relative;padding:14px 16px 20px;
+    }
+    .card::before{
+      content:"";position:absolute;inset:-4px;border:3px solid #ff3366;border-radius:30px;
+      box-shadow:0 0 50px #ff0033;z-index:-1;pointer-events:none;
+    }
 
-    /* Banner no topo */
-    .banner-top{width:100%;border-radius:16px;margin:10px 0 15px;border:3px solid #ff3366;box-shadow:0 0 30px rgba(255,0,51,0.7);}
+    /* Banner principal */
+    .banner{width:100%;border-radius:16px;border:3px solid #ff3366;box-shadow:0 0 30px rgba(255,0,51,0.8);display:block;}
 
-    /* Foto do tutorial */
-    .tutorial-img{width:100%;border-radius:14px;margin:15px 0;border:2px solid #ff3366;box-shadow:0 0 25px rgba(255,0,51,0.5);}
-
-    /* Estatísticas menores e lado a lado */
-    .stats{display:flex;justify-content:center;gap:30px;margin:12px 0;}
+    /* Estatísticas */
+    .stats{display:flex;justify-content:center;gap:32px;margin:14px 0 10px;font-weight:800;}
     .stats div{text-align:center;}
-    .num{font-size:28px;font-weight:900;color:#ff3366;line-height:1;}
-    .label{font-size:13px;color:#ff6699;}
+    .num{font-size:26px;color:#ff3366;}
+    .txt{font-size:12px;color:#ff6699;margin-top:2px;}
 
     /* Avaliação */
-    .rating{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0;}
-    .stars{font-size:24px;color:#ffdd00;}
-    .score{font-size:16px;color:#fff;font-weight:700;}
+    .rating{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px 0 12px;}
+    .stars{font-size:22px;}
+    .score{font-size:15px;color:#fff;font-weight:700;}
 
     /* Título */
-    .title{font-size:38px;font-weight:900;background:linear-gradient(90deg,#ff0033,#ff6699);
-           -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin:10px 0;}
+    .title{
+      font-size:36px;font-weight:900;background:linear-gradient(90deg,#ff0033,#ff6699);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;
+      margin:8px 0 10px;text-align:center;
+    }
+
+    /* Tutorial (foto.jpg) */
+    .tutorial-img{
+      width:100%;border-radius:14px;margin:12px 0 14px;
+      border:2.5px solid #ff3366;box-shadow:0 0 25px rgba(255,0,51,0.6);
+    }
 
     /* Vagas */
-    .vagas{font-size:23px;color:#fff;margin:12px 0;}
-    .fire{font-size:32px;vertical-align:middle;margin-right:6px;animation:f 1.4s infinite;}
-    @keyframes f{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .vagas{font-size:24px;color:#fff;text-align:center;margin:10px 0 6px;font-weight:700;}
+    .fire{font-size:30px;vertical-align:middle;margin-right:6px;animation:a 1.4s infinite;}
+    @keyframes a{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .small{font-size:13px;color:#ff6699;}
 
     /* Botão */
-    .btn{display:block;background:#ff0033;color:#fff;font-size:22px;font-weight:900;padding:18px;
-         border-radius:50px;margin:20px auto 10px;text-decoration:none;width:88%;
-         box-shadow:0 10px 30px rgba(255,0,51,0.7);transition:0.3s;}
-    .btn:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(255,0,51,0.9);}
+    .btn{
+      display:block;background:#ff0033;color:#fff;font-size:23px;font-weight:900;
+      text-decoration:none;padding:18px;border-radius:50px;margin:16px auto 10px;
+      width:88%;text-align:center;box-shadow:0 10px 30px rgba(255,0,51,0.8);
+    }
 
-    .warning{font-size:14px;color:#ff9966;margin-top:15px;}
+    .warning{font-size:13px;color:#ff9966;margin-top:12px;}
   </style>
 </head>
 <body>
 
-<div class="box">
-  <!-- Banner principal -->
-  <img src="banner.jpg" alt="Rede Secreta" class="banner-top">
+<div class="card">
+  <img src="banner.jpg" alt="Rede Secreta" class="banner">
 
-  <!-- Estatísticas -->
   <div class="stats">
-    <div><div class="num">18.3K+</div><div class="label">MEMBROS ATIVOS</div></div>
-    <div><div class="num">4.8K+</div><div class="label">ONLINE AGORA</div></div>
+    <div><div class="num">18.3K+</div><div class="txt">MEMBROS ATIVOS</div></div>
+    <div><div class="num">4.8K+</div><div class="txt">ONLINE AGORA</div></div>
   </div>
 
-  <!-- Avaliação -->
   <div class="rating">
     <div class="stars">★★★★★</div>
     <div class="score">4.9/5 (2.892 avaliações)</div>
@@ -68,12 +79,12 @@
 
   <div class="title">CONTEÚDO<br>EXCLUSIVO</div>
 
-  <!-- Foto do tutorial (substitui o texto) -->
+  <!-- Tutorial em imagem (foto.jpg) -->
   <img src="foto.jpg" alt="Como entrar" class="tutorial-img">
 
   <div class="vagas">
     <span class="fire">APENAS 4 VAGAS RESTANTES</span><br>
-    <small style="color:#ff6699;font-size:14px;">Acesso liberado por tempo limitado</small>
+    <span class="small">Acesso liberado por tempo limitado</span>
   </div>
 
   <a id="enter-btn" class="btn" href="https://apextry.com/go/tktkadsrede" target="_blank">
@@ -83,23 +94,23 @@
   <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
 </div>
 
-<!-- Pixel + API + ttclid 100% funcional -->
+<!-- Pixel + API TikTok 100% funcional -->
 <script>
   !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window,document,'ttq');
 
   const PID='D4FRJPBC77UEBGICQPK0', TOK='bf597b03c4b470ca9687deb287f7a7b92b62681e', API='https://business-api.tiktok.com/open_api/v1.3/event/track/';
   const p=new URLSearchParams(location.search), ttclid=p.get('ttclid')||'';
-  
+
   function id(n){return n+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9)}
   async function send(e='ViewContent',x={}){
-    if(e==='ViewContent'&&localStorage.getItem('rede_ok'))return;
+    if(e==='ViewContent'&&localStorage.getItem('v'))return;
     const pl={pixel_code:PID,event:e,event_id:id(e),timestamp:new Date().toISOString(),
-      context:{user_agent:navigator.userAgent,page:{url:location.href},ad:ttclid?{callback:ttclid}:{}},
-      properties:{content_type:'product',content_id:'REDE_SECRETA_001',content_name:'Rede Secreta VIP',currency:'BRL',value:18.00,...x}
+      context:{ad:ttclid?{callback:ttclid}:{}},
+      properties:{content_type:'product',content_id:'REDE_SECRETA_001',currency:'BRL',value:18.00,...x}
     };
     try{await fetch(API,{method:'POST',headers:{'Access-Token':TOK,'Content-Type':'application/json'},body:JSON.stringify(pl)});}catch{}
   }
-  window.addEventListener('load',()=>setTimeout(()=>{send();localStorage.setItem('rede_ok','1');},800));
+  window.addEventListener('load',()=>setTimeout(()=>{send();localStorage.setItem('v','1');},800));
   document.getElementById('enter-btn').addEventListener('click',()=>{send('ClickButton');send('CompleteRegistration');});
 </script>
 
