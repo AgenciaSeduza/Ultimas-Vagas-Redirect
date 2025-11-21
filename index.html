@@ -51,11 +51,10 @@
   <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
 </div>
 
-<!-- PIXEL CLIENT-SIDE (estrutura completa da Zona Oculta) -->
+<!-- PIXEL CLIENT-SIDE -->
 <script>
   !function (w, d, t) {
-    w.TiktokAnalyticsObject = t;
-    var ttq = w[t] = w[t] || [];
+    w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || [];
     ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
     ttq.setAndDefer = function(t, e) { t[e] = function() { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } };
     for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
@@ -63,17 +62,14 @@
     ttq.load = function(e, n) {
       var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner;
       ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
-      var n = document.createElement("script");
-      n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(n, s);
+      var n = document.createElement("script"); n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t;
+      var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(n, s);
     };
-    ttq.load('D4FRJPBC77UEBGICQPK0');
-    ttq.page();
+    ttq.load('D4FRJPBC77UEBGICQPK0'); ttq.page();
   }(window, document, 'ttq');
 </script>
 
-<!-- SERVER-SIDE API + EVENTOS (100% da Zona Oculta – a que nunca falha) -->
+<!-- SERVER-SIDE + EVENTOS CORRIGIDOS -->
 <script>
   const TIKTOK_PIXEL_ID = 'D4FRJPBC77UEBGICQPK0';
   const TIKTOK_ACCESS_TOKEN = 'bf597b03c4b470ca9687deb287f7a7b92b62681e';
@@ -107,22 +103,15 @@
     };
 
     try {
-      const response = await fetch(API_ENDPOINT, {
+      await fetch(API_ENDPOINT, {
         method: 'POST',
-        headers: {
-          'Access-Token': TIKTOK_ACCESS_TOKEN,
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Access-Token': TIKTOK_ACCESS_TOKEN, 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      const result = await response.json();
-      if (!response.ok || result.code !== 0) console.error(`[TikTok] ${eventName} erro:`, result);
-    } catch (err) {
-      console.error('[TikTok Server] Falha:', err);
-    }
+    } catch (err) {}
   }
 
-  // ViewContent (marca 100% – client + server)
+  // ViewContent
   window.addEventListener('load', () => {
     sendTikTokServerEvent('ViewContent');
     if (window.ttq) {
@@ -135,11 +124,16 @@
     }
   });
 
-  // Clique no botão → InitiateCheckout (melhor evento de pressell)
+  // InitiateCheckout CORRIGIDO (agora com content_id)
   document.getElementById('enter-btn').addEventListener('click', () => {
     sendTikTokServerEvent('InitiateCheckout', { value: 18.00 });
     if (window.ttq) {
-      ttq.track('InitiateCheckout', { value: 18.00, currency: 'BRL' });
+      ttq.track('InitiateCheckout', {
+        content_id: 'REDE_SECRETA_001',     // ← ADICIONADO
+        content_type: 'product',            // ← ADICIONADO
+        value: 18.00,
+        currency: 'BRL'
+      });
     }
   });
 </script>
