@@ -69,15 +69,24 @@
     }
 
     .vagas{
-      font-size:20px;color:#fff;text-align:center;margin:6px 0 4px;font-weight:700;
+      font-size:18px;
+      color:#fff;
+      text-align:center;
+      margin:6px 0 4px;
+      font-weight:700;
     }
     .fire{
-      font-size:22px;vertical-align:middle;margin-right:4px;
+      font-size:20px;
+      vertical-align:middle;
+      margin-right:4px;
       animation:a 1.4s infinite;
     }
     @keyframes a{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
-    .small{font-size:12px;color:#ff7f9e;}
+    .small{
+      font-size:11px;
+      color:#ff7f9e;
+    }
 
     .btn{
       display:block;background:#ff1f4b;color:#fff;font-size:19px;font-weight:800;
@@ -119,8 +128,10 @@
 
   <img src="foto.jpg" alt="Como entrar" class="tutorial-img">
 
+  <!-- VAGAS (corrigido, tudo na mesma linha) -->
   <div class="vagas">
-    <span class="fire">🔥</span> APENAS 4 VAGAS RESTANTES<br>
+    <span class="fire">🔥</span>
+    APENAS 4 VAGAS RESTANTES — 
     <span class="small">Acesso liberado por tempo limitado</span>
   </div>
 
@@ -131,7 +142,7 @@
   <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
 </div>
 
-<!-- Pixel + API TikTok 100% funcional (não alterado) -->
+<!-- Pixel + API TikTok 100% funcional -->
 <script>
   !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.load=function(e){var n=document.createElement("script");n.async=!0;n.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e+"&lib="+t;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)};ttq.load('D4FRJPBC77UEBGICQPK0');ttq.page();}(window,document,'ttq');
 
@@ -141,8 +152,12 @@
   function id(n){return n+'_'+Date.now()+'_'+Math.random().toString(36).substr(2,9)}
   async function send(e='ViewContent',x={}){
     if(e==='ViewContent'&&localStorage.getItem('v'))return;
-    const pl={pixel_code:PID,event:e,event_id:id(e),timestamp:new Date().toISOString(),
-      context:{ad:ttclid?{callback:ttclid}:{}}.
+    const pl={
+      pixel_code:PID,
+      event:e,
+      event_id:id(e),
+      timestamp:new Date().toISOString(),
+      context:{ad:ttclid?{callback:ttclid}:{}} ,
       properties:{content_type:'product',content_id:'REDE_SECRETA_001',currency:'BRL',value:18.00,...x}
     };
     try{await fetch(API,{method:'POST',headers:{'Access-Token':TOK,'Content-Type':'application/json'},body:JSON.stringify(pl)});}catch{}
