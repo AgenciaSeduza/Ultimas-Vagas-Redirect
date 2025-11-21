@@ -23,7 +23,7 @@
     .fire{font-size:24px;vertical-align:middle;margin-right:6px;animation:f 1.4s infinite;}
     @keyframes f{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
     .small{font-size:11.5px;color:#ff9fc8;display:block;margin-top:3px;}
-    .btn{display:block;background:linear-gradient(45deg,#ff1f5f,#ff4b8f);color:#fff;font-size:20px;font-weight:900;text-decoration:none;padding:16px;border-radius:50px;margin:16px auto 10px;width:88%;text-align:center;box-shadow:0 8px 25px rgba(255,31,95,0.4);position:relative;overflow:hidden;}
+    .btn{display:block;background:linear-gradient(45deg,#ff1f5f FOUR,#ff4b8f);color:#fff;font-size:20px;font-weight:900;text-decoration:none;padding:16px;border-radius:50px;margin:16px auto 10px;width:88%;text-align:center;box-shadow:0 8px 25px rgba(255,31,95,0.4);position:relative;overflow:hidden;}
     .btn::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:rgba(255,255,255,0.1);transform:rotate(30deg);opacity:0;}
     .btn:hover::before{animation:shine 1.5s infinite;}
     @keyframes shine{0%{transform:translateX(-100%) translateY(-100%) rotate(30deg);opacity:0;}50%{opacity:1;}100%{transform:translateX(100%) translateY(100%) rotate(30deg);opacity:0;}}
@@ -51,28 +51,19 @@
   <div class="warning">CONTEÚDO PARA MAIORES DE 18 ANOS</div>
 </div>
 
-<!-- PIXEL CLIENT-SIDE -->
+<!-- NOVO PIXEL CLIENT-SIDE -->
 <script>
   !function (w, d, t) {
-    w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || [];
-    ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
-    ttq.setAndDefer = function(t, e) { t[e] = function() { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } };
-    for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-    ttq.instance = function(t) { for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]); return e };
-    ttq.load = function(e, n) {
-      var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner;
-      ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
-      var n = document.createElement("script"); n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t;
-      var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(n, s);
-    };
-    ttq.load('D4FRJPBC77UEBGICQPK0'); ttq.page();
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+    ttq.load('D4G97HBC77U7MI8IEQNG');
+    ttq.page();
   }(window, document, 'ttq');
 </script>
 
-<!-- SERVER-SIDE + EVENTOS CORRIGIDOS -->
+<!-- SERVER-SIDE + EVENTOS COM NOVO PIXEL E NOVO TOKEN -->
 <script>
-  const TIKTOK_PIXEL_ID = 'D4FRJPBC77UEBGICQPK0';
-  const TIKTOK_ACCESS_TOKEN = 'bf597b03c4b470ca9687deb287f7a7b92b62681e';
+  const TIKTOK_PIXEL_ID = 'D4G97HBC77U7MI8IEQNG';
+  const TIKTOK_ACCESS_TOKEN = '2c24c7f31e631fe831bb81c69136f2de2c2c846b';
   const API_ENDPOINT = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
 
   function generateEventId(eventName) {
@@ -124,13 +115,13 @@
     }
   });
 
-  // InitiateCheckout CORRIGIDO (agora com content_id)
+  // InitiateCheckout (com content_id – sem aviso no Events Manager)
   document.getElementById('enter-btn').addEventListener('click', () => {
     sendTikTokServerEvent('InitiateCheckout', { value: 18.00 });
     if (window.ttq) {
       ttq.track('InitiateCheckout', {
-        content_id: 'REDE_SECRETA_001',     // ← ADICIONADO
-        content_type: 'product',            // ← ADICIONADO
+        content_id: 'REDE_SECRETA_001',
+        content_type: 'product',
         value: 18.00,
         currency: 'BRL'
       });
